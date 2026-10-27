@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ăn Vặt Land – Thiên đường đồ ăn vặt</title>
+<meta name="description" content="Ăn Vặt Land – đồ ăn vặt ngon, giá tốt, giao nhanh toàn quốc.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#trang-chu" class="logo"><span class="logo__icon">🍿</span>Ăn Vặt <b>Land</b></a>
+    <nav class="nav" id="nav" aria-label="Menu chính">
+      <a href="#trang-chu">Trang chủ</a>
+      <a href="#flash-sale">Flash Sale</a>
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#combo">Combo</a>
+      <a href="#uu-dai">Ưu đãi</a>
+      <a href="#dat-hang">Đặt hàng</a>
+      <a href="#thuong-hieu">Về chúng tôi</a>
+      <a href="#hoi-dap">Hỗ trợ</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+    <div class="header__actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Tìm kiếm">🔍</button>
+      <button class="icon-btn cart-btn" id="cartBtn" aria-label="Giỏ hàng">🛒<span class="badge-count" id="cartCount">0</span></button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Mở menu">☰</button>
+    </div>
+  </div>
+  <div class="searchbar" id="searchbar">
+    <div class="container">
+      <input type="search" id="searchInput" placeholder="Bạn thèm món gì? Thử gõ “xoài”, “cay”, “snack”…" autocomplete="off">
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="trang-chu">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <span class="pill">🎉 Giảm 25.000đ phí ship đơn từ 299.000đ</span>
+        <h1>Ăn vặt thả ga,<br>vui không lo <span>hết vị!</span></h1>
+        <p>Hơn 500 món ăn vặt giòn tan, cay xé lưỡi, ngọt lịm tim. Đóng gói sạch sẽ, giao tận cửa chỉ trong 2 giờ nội thành.</p>
+        <div class="hero__cta">
+          <a href="#san-pham" class="btn btn--primary">Khám phá ngay</a>
+          <a href="#combo" class="btn btn--ghost">Xem combo hot</a>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="blob"></div>
+        <span class="float f1">🍟</span><span class="float f2">🍭</span><span class="float f3">🍿</span>
+        <span class="float f4">🥭</span><span class="float f5">🍫</span><span class="float f6">🌶️</span>
+        <div class="hero__box">🛍️</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Thanh số liệu ===== -->
+  <section class="stats" id="so-lieu" data-nav="#trang-chu" aria-label="Số liệu nổi bật">
+    <div class="container">
+      <ul class="stats__bar reveal">
+        <li>
+          <span class="stats__icon" aria-hidden="true">😋</span>
+          <div><b><span data-count="120000" data-suffix="+">120.000+</span></b><small>khách hàng hài lòng</small></div>
+        </li>
+        <li>
+          <span class="stats__icon" aria-hidden="true">⭐</span>
+          <div><b><span data-count="4.9" data-dec="1">4,9</span>/5</b><small>từ hơn 18.000 đánh giá</small></div>
+        </li>
+        <li>
+          <span class="stats__icon" aria-hidden="true">🚚</span>
+          <div><b><span data-count="2" data-suffix=" giờ">2 giờ</span></b><small>giao hàng nội thành</small></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Flash sale ===== -->
+  <section class="section flash" id="flash-sale">
+    <div class="container">
+      <div class="flash__head reveal">
+        <div>
+          <span class="pill pill--dark">⚡ Deal chớp nhoáng</span>
+          <h2>Giá sốc hôm nay – chỉ đến hết ngày!</h2>
+          <p>Số lượng có hạn, hết là hết. Mai sẽ có deal mới.</p>
+        </div>
+        <div class="countdown" id="countdown" role="timer" aria-label="Thời gian còn lại của deal hôm nay">
+          <span>Kết thúc sau</span>
+          <div class="countdown__boxes">
+            <div><b id="cdH">00</b><small>giờ</small></div><i>:</i>
+            <div><b id="cdM">00</b><small>phút</small></div><i>:</i>
+            <div><b id="cdS">00</b><small>giây</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="products flash__grid reveal" id="flashGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== Danh mục ===== -->
+  <section class="section" id="danh-muc" data-nav="#san-pham">
+    <div class="container reveal">
+      <h2 class="section__title">Hôm nay bạn thèm gì?</h2>
+      <div class="cats" id="catGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== Chọn theo mood ===== -->
+  <section class="section section--cream" id="mood" data-nav="#san-pham">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section__title">Hôm nay tâm trạng bạn thế nào?</h2>
+        <p class="section__sub">Chọn một mood, bọn mình lọc sẵn đúng những món hợp vị cho bạn.</p>
+        <div class="moods" id="moodTabs" role="group" aria-label="Chọn mood"></div>
+      </div>
+      <p class="mood__info" id="moodInfo" aria-live="polite"></p>
+      <div class="products" id="moodGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== Sản phẩm ===== -->
+  <section class="section" id="san-pham">
+    <div class="container">
+      <h2 class="section__title reveal">Món ngon bán chạy</h2>
+      <div class="filters" id="filters"></div>
+      <div class="toolbar">
+        <p class="toolbar__info" id="resultInfo" aria-live="polite"></p>
+        <label class="sort">Sắp xếp:
+          <select id="sortSelect">
+            <option value="default">Mặc định</option>
+            <option value="price-asc">Giá tăng dần</option>
+            <option value="price-desc">Giá giảm dần</option>
+            <option value="discount">Giảm giá nhiều nhất</option>
+          </select>
+        </label>
+      </div>
+      <div class="products" id="productGrid"></div>
+      <p class="empty" id="emptyMsg" hidden>Không tìm thấy món nào. Thử từ khóa khác nhé! 🥲</p>
+      <div class="more"><button class="btn btn--ghost" id="moreBtn" hidden>Xem thêm</button></div>
+    </div>
+  </section>
+
+  <!-- ===== 3 combo tiết kiệm ===== -->
+  <section class="section section--cream" id="combo">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section__title">3 combo tiết kiệm – mua một được cả mâm</h2>
+        <p class="section__sub">Gom sẵn món ngon theo dịp, rẻ hơn mua lẻ.</p>
+      </div>
+      <div class="combos reveal" id="comboGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== Kho voucher ===== -->
+  <section class="section" id="uu-dai">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section__title">Kho voucher – lưu mã, mua rẻ hơn</h2>
+        <p class="section__sub">Bấm “Lưu mã” để cất vào kho, rồi “Dùng ngay” khi đặt hàng.</p>
+        <p class="vault-count">🎟️ Kho của bạn: <b id="voucherSaved">0</b> mã đã lưu</p>
+      </div>
+      <div class="vouchers reveal" id="voucherGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== 4 bước đặt hàng ===== -->
+  <section class="section section--cream" id="quy-trinh" data-nav="#dat-hang">
+    <div class="container">
+      <h2 class="section__title reveal">Đặt hàng chỉ với 4 bước</h2>
+      <ol class="steps" data-stagger>
+        <li class="step"><span class="step__no">1</span><div class="step__icon" aria-hidden="true">🛍️</div><h3>Chọn món</h3><p>Duyệt danh mục, lọc theo mood rồi thêm món yêu thích vào giỏ.</p></li>
+        <li class="step"><span class="step__no">2</span><div class="step__icon" aria-hidden="true">📝</div><h3>Điền thông tin</h3><p>Nhập tên, số điện thoại, địa chỉ và áp mã giảm giá nếu có.</p></li>
+        <li class="step"><span class="step__no">3</span><div class="step__icon" aria-hidden="true">📞</div><h3>Xác nhận đơn</h3><p>Bọn mình gọi xác nhận trong ít phút và đóng gói ngay trong ngày.</p></li>
+        <li class="step"><span class="step__no">4</span><div class="step__icon" aria-hidden="true">🎁</div><h3>Nhận hàng & thanh toán</h3><p>Kiểm tra hàng rồi thanh toán khi nhận (COD) hoặc chuyển khoản.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Đặt hàng và thanh toán ===== -->
+  <section class="section" id="dat-hang">
+    <div class="container">
+      <h2 class="section__title reveal">Đặt hàng và thanh toán</h2>
+      <p class="section__sub reveal">Điền thông tin, chọn cách giao và cách thanh toán – xong trong một phút.</p>
+
+      <form class="checkout reveal" id="orderForm" novalidate>
+        <!-- Cột trái: thông tin -->
+        <div class="checkout__main">
+
+          <section class="co-card" aria-labelledby="coH1">
+            <h3 id="coH1"><span aria-hidden="true">1</span>Thông tin nhận hàng</h3>
+            <div class="co-grid">
+              <div class="field">
+                <label for="co-name">Họ và tên <i aria-hidden="true">*</i></label>
+                <input id="co-name" name="name" autocomplete="name" maxlength="60" placeholder="VD: Nguyễn Minh Anh" aria-describedby="err-name">
+                <p class="field__err" id="err-name" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="co-phone">Số điện thoại <i aria-hidden="true">*</i></label>
+                <input id="co-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" placeholder="VD: 0912 345 678" aria-describedby="err-phone">
+                <p class="field__err" id="err-phone" role="alert"></p>
+              </div>
+              <div class="field full">
+                <label for="co-email">Email <i aria-hidden="true">*</i></label>
+                <input id="co-email" name="email" type="email" autocomplete="email" maxlength="100" placeholder="ban@email.com" aria-describedby="err-email">
+                <p class="field__err" id="err-email" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="co-province">Tỉnh/Thành phố <i aria-hidden="true">*</i></label>
+                <select id="co-province" name="province" autocomplete="address-level1" aria-describedby="err-province"></select>
+                <p class="field__err" id="err-province" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="co-district">Quận/Huyện <i aria-hidden="true">*</i></label>
+                <input id="co-district" name="district" list="districtList" autocomplete="off" maxlength="60" placeholder="Chọn hoặc nhập quận/huyện" aria-describedby="err-district">
+                <datalist id="districtList"></datalist>
+                <p class="field__err" id="err-district" role="alert"></p>
+              </div>
+              <div class="field full">
+                <label for="co-address">Địa chỉ nhận hàng <i aria-hidden="true">*</i></label>
+                <input id="co-address" name="address" autocomplete="street-address" maxlength="150" placeholder="Số nhà, tên đường, phường/xã" aria-describedby="err-address">
+                <p class="field__err" id="err-address" role="alert"></p>
+              </div>
+              <div class="field full">
+                <label for="co-note">Ghi chú <small>(không bắt buộc)</small></label>
+                <textarea id="co-note" name="note" maxlength="200" placeholder="VD: Giao giờ hành chính, gọi trước khi đến…"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="co-card" aria-labelledby="coH2">
+            <h3 id="coH2"><span aria-hidden="true">2</span>Chọn cách giao hàng</h3>
+            <fieldset class="opts">
+              <legend class="sr-only">Phương thức giao hàng</legend>
+              <label class="opt">
+                <input type="radio" name="ship" id="ship-standard" value="standard" checked>
+                <span class="opt__body"><b>Giao tiêu chuẩn</b><small>Nhận hàng sau 2–4 ngày làm việc</small></span>
+                <span class="opt__price" id="priceStd">25.000đ</span>
+              </label>
+              <label class="opt">
+                <input type="radio" name="ship" id="ship-express" value="express">
+                <span class="opt__body"><b>Giao hỏa tốc ⚡</b><small id="expressNote">Chỉ áp dụng cho Hà Nội và TP. Hồ Chí Minh</small></span>
+                <span class="opt__price" id="priceExp">45.000đ</span>
+              </label>
+            </fieldset>
+          </section>
+
+          <section class="co-card" aria-labelledby="coH3">
+            <h3 id="coH3"><span aria-hidden="true">3</span>Chọn cách thanh toán</h3>
+            <fieldset class="opts">
+              <legend class="sr-only">Phương thức thanh toán</legend>
+              <label class="opt">
+                <input type="radio" name="pay" value="cod" checked>
+                <span class="opt__body"><b>💵 Thanh toán khi nhận hàng (COD)</b><small>Kiểm tra hàng rồi mới trả tiền</small></span>
+              </label>
+              <label class="opt">
+                <input type="radio" name="pay" value="bank">
+                <span class="opt__body"><b>🏦 Chuyển khoản ngân hàng</b><small>Chuyển nhanh 24/7 theo mã đơn</small></span>
+              </label>
+              <label class="opt">
+                <input type="radio" name="pay" value="wallet">
+                <span class="opt__body"><b>📱 Ví điện tử</b><small>MoMo, ZaloPay, VNPAY</small></span>
+              </label>
+              <label class="opt">
+                <input type="radio" name="pay" value="card">
+                <span class="opt__body"><b>💳 Thẻ ATM / Visa / Mastercard / JCB</b><small>Nhập thông tin thẻ ngay bên dưới</small></span>
+              </label>
+            </fieldset>
+
+            <div class="pay-panel" data-panel="cod">
+              <p>Chuẩn bị đúng số tiền khi shipper giao hàng. Bạn được kiểm tra hàng trước khi thanh toán.</p>
+            </div>
+            <div class="pay-panel" data-panel="bank" hidden>
+              <p>Sau khi đặt hàng, bạn sẽ nhận số tài khoản và nội dung chuyển khoản (chính là mã đơn hàng).</p>
+            </div>
+            <div class="pay-panel" data-panel="wallet" hidden>
+              <fieldset class="opts opts--inline">
+                <legend class="sr-only">Chọn ví điện tử</legend>
+                <label class="opt opt--chip"><input type="radio" name="wallet" value="MoMo" checked><b>MoMo</b></label>
+                <label class="opt opt--chip"><input type="radio" name="wallet" value="ZaloPay"><b>ZaloPay</b></label>
+                <label class="opt opt--chip"><input type="radio" name="wallet" value="VNPAY"><b>VNPAY</b></label>
+              </fieldset>
+            </div>
+            <div class="pay-panel" data-panel="card" hidden>
+              <p class="demo-note">🔒 <b>Bản demo:</b> thông tin thẻ chỉ được kiểm tra định dạng ngay trên trình duyệt, <b>không gửi đi và không lưu lại</b>. Vui lòng không nhập thẻ thật.</p>
+              <div class="co-grid">
+                <div class="field full">
+                  <label for="co-cardno">Số thẻ <i aria-hidden="true">*</i> <span class="brand" id="cardBrand" aria-live="polite"></span></label>
+                  <input id="co-cardno" inputmode="numeric" autocomplete="off" maxlength="23" placeholder="1234 5678 9012 3456" aria-describedby="err-cardno">
+                  <p class="field__err" id="err-cardno" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="co-exp">Hạn thẻ (MM/YY) <i aria-hidden="true">*</i></label>
+                  <input id="co-exp" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="MM/YY" aria-describedby="err-exp">
+                  <p class="field__err" id="err-exp" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="co-cvv">CVV <i aria-hidden="true">*</i></label>
+                  <input id="co-cvv" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="3 số sau thẻ" aria-describedby="err-cvv">
+                  <p class="field__err" id="err-cvv" role="alert"></p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Cột phải: tóm tắt đơn hàng -->
+        <aside class="checkout__side" aria-labelledby="coSum">
+          <h3 id="coSum">🧾 Tóm tắt đơn hàng</h3>
+          <div class="order__list" id="orderList"></div>
+
+          <div class="voucher-box">
+            <input id="voucherInput" name="voucher" placeholder="Nhập mã giảm giá" aria-label="Mã giảm giá" autocomplete="off">
+            <button type="button" class="btn btn--ghost" id="applyVoucher">Áp dụng</button>
+          </div>
+          <div class="saved-chips" id="savedChips"></div>
+          <p class="voucher-msg" id="voucherMsg" role="status"></p>
+          <div class="voucher-tip" id="voucherTip"></div>
+
+          <dl class="sum">
+            <div><dt>Tạm tính</dt><dd id="orderSub">0đ</dd></div>
+            <div><dt id="orderDiscLabel">Giảm giá</dt><dd id="orderDisc">0đ</dd></div>
+            <div><dt>Phí vận chuyển</dt><dd id="orderShip">—</dd></div>
+            <div class="sum__total"><dt>Tổng cộng</dt><dd id="orderTotal">0đ</dd></div>
+          </dl>
+          <p class="ship-hint" id="shipHint"></p>
+          <p class="field__err" id="err-cart" role="alert"></p>
+          <button class="btn btn--primary btn--block" type="submit">Đặt hàng ngay</button>
+          <p class="side-note">Bấm “Đặt hàng ngay” nghĩa là bạn đồng ý với chính sách mua hàng của Ăn Vặt Land. Đây là bản demo, không có đơn hàng thật.</p>
+        </aside>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Câu chuyện thương hiệu ===== -->
+  <section class="section section--cream" id="thuong-hieu">
+    <div class="container story">
+      <div class="story__art reveal" aria-hidden="true">
+        🏠
+        <span class="sticker s1">🌱 Từ năm 2019</span>
+        <span class="sticker s2">📦 120.000+ đơn giao</span>
+      </div>
+      <div class="story__text reveal">
+        <span class="eyebrow">Câu chuyện của chúng mình</span>
+        <h2>Từ một chiếc xe đẩy nhỏ đến thiên đường ăn vặt</h2>
+        <p>Ăn Vặt Land bắt đầu năm 2019 từ một chiếc xe đẩy trước cổng trường đại học ở Hà Nội. Chị Minh Anh – người sáng lập – chỉ muốn tìm những món ăn vặt ngon, sạch và đúng vị tuổi thơ cho mình và bạn bè.</p>
+        <p>Bảy năm sau, tinh thần ấy vẫn còn nguyên: tự tay chọn từng nhà cung cấp, nếm thử từng mẻ hàng và chỉ bán những món mà cả nhóm sẵn sàng ăn mỗi ngày.</p>
+        <ul class="values" data-stagger>
+          <li class="value"><span aria-hidden="true">🌿</span><b>Nguyên liệu sạch</b><small>Rõ nguồn gốc, nói không với phẩm màu độc hại.</small></li>
+          <li class="value"><span aria-hidden="true">📦</span><b>Đóng gói trong ngày</b><small>Hàng mới, giòn tan khi đến tay bạn.</small></li>
+          <li class="value"><span aria-hidden="true">💛</span><b>Hài lòng hoặc đổi trả</b><small>48 giờ đổi trả, không hỏi khó.</small></li>
+        </ul>
+        <ol class="milestones">
+          <li><b>2019</b>Xe đẩy đầu tiên</li>
+          <li><b>2021</b>Cửa hàng & website</li>
+          <li><b>2024</b>100.000 khách hàng</li>
+          <li><b>2026</b>Hơn 500 sản phẩm</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Đánh giá khách hàng ===== -->
+  <section class="section" id="danh-gia" data-nav="#thuong-hieu">
+    <div class="container">
+      <h2 class="section__title reveal">Khách hàng nói gì về Ăn Vặt Land</h2>
+      <div class="reviews">
+        <aside class="rating reveal" aria-label="Tổng hợp đánh giá">
+          <div class="rating__score">4,9</div>
+          <div class="stars" aria-label="4,9 trên 5 sao">★★★★★</div>
+          <p>Dựa trên 18.264 đánh giá</p>
+          <ul class="bars">
+            <li>5★<i style="--w:88%"></i><span>88%</span></li>
+            <li>4★<i style="--w:9%"></i><span>9%</span></li>
+            <li>3★<i style="--w:2%"></i><span>2%</span></li>
+            <li>2★<i style="--w:1%"></i><span>1%</span></li>
+            <li>1★<i style="--w:0%"></i><span>0%</span></li>
+          </ul>
+        </aside>
+        <div class="reviews__grid" data-stagger>
+          <figure class="review">
+            <div class="review__head"><span class="avatar" aria-hidden="true">👩</span><div class="review__who"><b>Lan Anh</b><small>Hà Nội</small></div><span class="stars" aria-label="5 sao">★★★★★</span></div>
+            <blockquote><p>Khô bò cay vừa miệng, miếng dày, nhai đã lắm. Giao trong đúng 2 tiếng, hộp còn nguyên vẹn. Sẽ ủng hộ dài dài!</p></blockquote>
+            <figcaption class="review__buy">✔ Đã mua: Khô bò miếng vị cay</figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__head"><span class="avatar" aria-hidden="true">👨</span><div class="review__who"><b>Quốc Bảo</b><small>TP. Hồ Chí Minh</small></div><span class="stars" aria-label="5 sao">★★★★★</span></div>
+            <blockquote><p>Combo Văn Phòng đúng là cứu tinh mùa deadline, cả team ăn hết trong 2 ngày. Đóng gói chắc chắn, hạn dùng còn dài.</p></blockquote>
+            <figcaption class="review__buy">✔ Đã mua: Combo Văn Phòng</figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__head"><span class="avatar" aria-hidden="true">👧</span><div class="review__who"><b>Thu Hà</b><small>Đà Nẵng</small></div><span class="stars" aria-label="5 sao">★★★★★</span></div>
+            <blockquote><p>Xoài sấy dẻo thơm, ngọt tự nhiên, không bị quá chua hay quá ngọt. Mình đặt thêm 3 túi làm quà cho bạn bè.</p></blockquote>
+            <figcaption class="review__buy">✔ Đã mua: Xoài sấy dẻo Cam Ranh</figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__head"><span class="avatar" aria-hidden="true">🧑</span><div class="review__who"><b>Minh Tuấn</b><small>Hải Phòng</small></div><span class="stars" aria-label="4 sao">★★★★☆</span></div>
+            <blockquote><p>Tóp mỡ giòn rụm, cay đúng kiểu mình thích. Trừ 1 sao vì ship tỉnh hơi lâu một chút, còn lại rất ổn.</p></blockquote>
+            <figcaption class="review__buy">✔ Đã mua: Tóp mỡ cháy tỏi ớt</figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__head"><span class="avatar" aria-hidden="true">👩‍🦰</span><div class="review__who"><b>Ngọc Mai</b><small>Cần Thơ</small></div><span class="stars" aria-label="5 sao">★★★★★</span></div>
+            <blockquote><p>Combo Xem Phim hợp lý ghê, bắp thơm mùi caramel, trà đào mát lạnh. Tối cuối tuần của hai đứa mình trọn vẹn.</p></blockquote>
+            <figcaption class="review__buy">✔ Đã mua: Combo Xem Phim</figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__head"><span class="avatar" aria-hidden="true">👨‍🦱</span><div class="review__who"><b>Hoàng Nam</b><small>Huế</small></div><span class="stars" aria-label="5 sao">★★★★★</span></div>
+            <blockquote><p>Có voucher freeship nên mua thêm được mấy món. Nhân viên gọi xác nhận lịch sự, tư vấn nhiệt tình.</p></blockquote>
+            <figcaption class="review__buy">✔ Đã mua: Socola hạnh nhân thanh</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section--cream" id="hoi-dap">
+    <div class="container">
+      <h2 class="section__title reveal">Hỏi nhanh – đáp gọn</h2>
+      <div class="acc reveal" id="faqList">
+        <div class="acc__item open">
+          <h3><button class="acc__btn" id="q1" aria-expanded="true" aria-controls="a1">Bao lâu thì nhận được hàng?<span class="acc__icon" aria-hidden="true">+</span></button></h3>
+          <div class="acc__panel" id="a1" role="region" aria-labelledby="q1"><div><p>Nội thành Hà Nội và TP. Hồ Chí Minh giao trong khoảng 2 giờ (đặt trong giờ mở cửa 8:00 – 22:00). Các tỉnh thành khác mất 2–4 ngày làm việc.</p></div></div>
+        </div>
+        <div class="acc__item">
+          <h3><button class="acc__btn" id="q2" aria-expanded="false" aria-controls="a2">Phí vận chuyển là bao nhiêu?<span class="acc__icon" aria-hidden="true">+</span></button></h3>
+          <div class="acc__panel" id="a2" role="region" aria-labelledby="q2"><div><p>Giao tiêu chuẩn 25.000đ, giao hỏa tốc 45.000đ (chỉ Hà Nội và TP. Hồ Chí Minh). Đơn từ 299.000đ được giảm 25.000đ phí ship, và bạn có thể dùng thêm mã FREESHIP cho đơn từ 99.000đ.</p></div></div>
+        </div>
+        <div class="acc__item">
+          <h3><button class="acc__btn" id="q3" aria-expanded="false" aria-controls="a3">Đồ ăn vặt có hạn sử dụng bao lâu?<span class="acc__icon" aria-hidden="true">+</span></button></h3>
+          <div class="acc__panel" id="a3" role="region" aria-labelledby="q3"><div><p>Mỗi gói đều in hạn dùng rõ ràng, và khi giao hàng luôn còn tối thiểu 3 tháng.</p></div></div>
+        </div>
+        <div class="acc__item">
+          <h3><button class="acc__btn" id="q4" aria-expanded="false" aria-controls="a4">Có được đổi trả không?<span class="acc__icon" aria-hidden="true">+</span></button></h3>
+          <div class="acc__panel" id="a4" role="region" aria-labelledby="q4"><div><p>Có. Bạn được đổi trả trong 48 giờ nếu sản phẩm lỗi, hư hỏng hoặc giao sai. Chỉ cần chụp ảnh và gửi qua hotline hoặc form liên hệ bên dưới.</p></div></div>
+        </div>
+        <div class="acc__item">
+          <h3><button class="acc__btn" id="q5" aria-expanded="false" aria-controls="a5">Tôi có thể thanh toán bằng cách nào?<span class="acc__icon" aria-hidden="true">+</span></button></h3>
+          <div class="acc__panel" id="a5" role="region" aria-labelledby="q5"><div><p>Bạn có thể thanh toán khi nhận hàng (COD), chuyển khoản ngân hàng, ví điện tử (MoMo, ZaloPay, VNPAY) hoặc thẻ Visa/Mastercard/JCB.</p></div></div>
+        </div>
+        <div class="acc__item">
+          <h3><button class="acc__btn" id="q6" aria-expanded="false" aria-controls="a6">Dùng voucher như thế nào?<span class="acc__icon" aria-hidden="true">+</span></button></h3>
+          <div class="acc__panel" id="a6" role="region" aria-labelledby="q6"><div><p>Vào mục Kho voucher, bấm “Lưu mã” rồi “Dùng ngay”, hoặc nhập mã trực tiếp ở form đặt hàng (nếu không nhập, hệ thống tự chọn mã có lợi nhất cho bạn). Mỗi đơn áp dụng được một mã.</p></div></div>
+        </div>
+        <div class="acc__item">
+          <h3><button class="acc__btn" id="q7" aria-expanded="false" aria-controls="a7">Bên mình có bán sỉ hoặc làm quà tặng doanh nghiệp không?<span class="acc__icon" aria-hidden="true">+</span></button></h3>
+          <div class="acc__panel" id="a7" role="region" aria-labelledby="q7"><div><p>Có. Hãy để lại thông tin ở form liên hệ, bộ phận bán sỉ sẽ gọi lại báo giá trong vòng 1 ngày làm việc.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Chính sách mua hàng ===== -->
+  <section class="section" id="chinh-sach" data-nav="#hoi-dap">
+    <div class="container">
+      <h2 class="section__title reveal">Chính sách mua hàng</h2>
+      <div class="policy" data-stagger>
+        <article class="pol">
+          <div class="pol__icon" aria-hidden="true">🚚</div><h3>Giao hàng</h3>
+          <ul><li>Nội thành giao trong 2 giờ</li><li>Tỉnh khác giao 2–4 ngày</li><li>Tiêu chuẩn 25.000đ, hỏa tốc 45.000đ (HN & HCM)</li><li>Giảm 25.000đ phí ship đơn từ 299.000đ</li></ul>
+        </article>
+        <article class="pol">
+          <div class="pol__icon" aria-hidden="true">🔄</div><h3>Đổi trả</h3>
+          <ul><li>Đổi trả trong 48 giờ</li><li>Áp dụng khi lỗi, hư hỏng hoặc giao sai</li><li>Hoàn tiền hoặc đổi món mới</li><li>Không áp dụng với hàng đã mở hộp, trừ khi lỗi</li></ul>
+        </article>
+        <article class="pol">
+          <div class="pol__icon" aria-hidden="true">💳</div><h3>Thanh toán</h3>
+          <ul><li>Thanh toán khi nhận hàng (COD)</li><li>Chuyển khoản ngân hàng</li><li>Ví MoMo, ZaloPay, VNPAY</li><li>Thẻ Visa, Mastercard, JCB</li><li>Hóa đơn điện tử theo yêu cầu</li></ul>
+        </article>
+        <article class="pol">
+          <div class="pol__icon" aria-hidden="true">🛡️</div><h3>Chất lượng & bảo mật</h3>
+          <ul><li>Hạn dùng còn tối thiểu 3 tháng khi giao</li><li>Rõ nguồn gốc, đạt quy định an toàn thực phẩm</li><li>Thông tin khách hàng được bảo mật, không chia sẻ cho bên thứ ba</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Đăng ký email + Liên hệ ===== -->
+  <section class="section section--cream" id="lien-he">
+    <div class="container">
+      <div class="news reveal" id="dang-ky">
+        <div>
+          <h2>Đăng ký nhận deal sớm, tặng ngay mã giảm 10% 🎁</h2>
+          <p>Mỗi tuần một email ngắn: deal mới, combo mới và mã giảm giá dành riêng cho bạn. Không spam, hủy bất cứ lúc nào.</p>
+        </div>
+        <form id="newsForm" novalidate>
+          <label class="sr-only" for="newsEmail">Địa chỉ email</label>
+          <input type="email" id="newsEmail" name="email" placeholder="Email của bạn" autocomplete="email" required>
+          <button class="btn btn--dark" type="submit">Nhận voucher</button>
+          <p class="form-msg" id="newsMsg" role="status"></p>
+        </form>
+      </div>
+
+      <h2 class="section__title reveal">Liên hệ với Ăn Vặt Land</h2>
+      <div class="contact">
+        <div class="contact__info" data-stagger>
+          <div class="info"><span aria-hidden="true">📞</span><div><b>Hotline</b><a href="tel:0900123456">0900 123 456</a></div></div>
+          <div class="info"><span aria-hidden="true">✉️</span><div><b>Email</b><a href="mailto:xinchao@anvatland.vn">xinchao@anvatland.vn</a></div></div>
+          <div class="info"><span aria-hidden="true">📍</span><div><b>Cửa hàng</b>12 Phố Vui Vẻ, Hà Nội</div></div>
+          <div class="info"><span aria-hidden="true">🕗</span><div><b>Giờ mở cửa</b>Thứ 2 – Chủ nhật, 8:00 – 22:00</div></div>
+        </div>
+        <form class="contact__form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field"><label for="cName">Họ và tên</label><input id="cName" name="name" required autocomplete="name"></div>
+            <div class="field"><label for="cPhone">Số điện thoại</label><input id="cPhone" name="phone" type="tel" pattern="[0-9]{9,11}" required autocomplete="tel"></div>
+          </div>
+          <div class="field"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="cTopic">Bạn cần hỗ trợ về</label>
+            <select id="cTopic" name="topic">
+              <option>Đơn hàng của tôi</option>
+              <option>Đổi trả / khiếu nại</option>
+              <option>Mua sỉ, quà tặng doanh nghiệp</option>
+              <option>Góp ý khác</option>
+            </select>
+          </div>
+          <div class="field"><label for="cMsg">Lời nhắn</label><textarea id="cMsg" name="message" minlength="10" required></textarea></div>
+          <button class="btn btn--primary" type="submit">Gửi liên hệ</button>
+          <p class="form-msg" id="contactMsg" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="footer" data-nav="#lien-he">
+  <div class="container footer__inner">
+    <div>
+      <div class="logo">🍿 Ăn Vặt <b>Land</b></div>
+      <p>Thiên đường đồ ăn vặt cho mọi cơn thèm. Sạch, ngon, giao nhanh – ăn vui cả ngày.</p>
+      <div class="social">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">🎵</a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">▶️</a>
+      </div>
+    </div>
+    <div>
+      <h4>Mua sắm</h4>
+      <ul>
+        <li><a href="#flash-sale">Flash Sale hôm nay</a></li>
+        <li><a href="#san-pham">Tất cả sản phẩm</a></li>
+        <li><a href="#combo">Combo tiết kiệm</a></li>
+        <li><a href="#uu-dai">Kho voucher</a></li>
+        <li><a href="#dat-hang">Đặt hàng & thanh toán</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Hỗ trợ</h4>
+      <ul>
+        <li><a href="#hoi-dap">Câu hỏi thường gặp</a></li>
+        <li><a href="#chinh-sach">Chính sách giao hàng</a></li>
+        <li><a href="#chinh-sach">Chính sách đổi trả</a></li>
+        <li><a href="#thuong-hieu">Về Ăn Vặt Land</a></li>
+        <li><a href="#lien-he">Liên hệ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Liên hệ</h4>
+      <p>📞 0900 123 456</p>
+      <p>✉️ xinchao@anvatland.vn</p>
+      <p>📍 12 Phố Vui Vẻ, Hà Nội</p>
+      <p>🕗 8:00 – 22:00 mỗi ngày</p>
+      <h4 class="pay-title">Thanh toán</h4>
+      <div class="pay"><span>COD</span><span>Chuyển khoản</span><span>MoMo</span><span>ZaloPay</span><span>Thẻ</span></div>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2026 Ăn Vặt Land. Ăn vặt vui, đời thêm vui!</span>
+    <span><a href="#chinh-sach">Điều khoản</a> · <a href="#chinh-sach">Bảo mật</a></span>
+  </div>
+</footer>
+
+<aside class="drawer" id="drawer" aria-label="Giỏ hàng">
+  <div class="drawer__head"><h3>Giỏ hàng của bạn</h3><button class="icon-btn" id="closeCart" aria-label="Đóng">✕</button></div>
+  <div class="drawer__body" id="cartItems"></div>
+  <div class="drawer__foot"><div>Tạm tính: <b id="cartTotal">0đ</b></div><a href="#dat-hang" class="btn btn--primary" id="checkoutBtn">Đến đặt hàng</a></div>
+</aside>
+<div class="overlay" id="overlay"></div>
+<dialog class="modal" id="orderModal" aria-labelledby="omTitle"><div class="modal__box" id="omBody"></div></dialog>
+<div class="toast" id="toast"></div>
+<button class="totop" id="toTop" aria-label="Lên đầu trang">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
